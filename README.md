@@ -17,4 +17,10 @@ An instagram bot which follows or unfollows a list of people (valid usernames) y
 ![](images/cdInstagramBot.png)  
 ![](images/execute.png)  
 
+#Installing PIP#
 
+WINDOWS  
+![](images/pipwindows.png)  
+
+UBUNTU/DEBIAN  
+![](images/pipubuntudebian.png)
