@@ -4,6 +4,6 @@ An instagram bot which follows or unfollows a list of people (valid usernames) y
 
 # HOW TO USE #
 
--Requirements installation
+-Requirements installation\n
 ![](images/requirements.png)
 
