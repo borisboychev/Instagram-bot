@@ -1,5 +1,6 @@
 import time
 import secrets
+import sys
 
 from selenium import webdriver
 
@@ -29,38 +30,51 @@ class InstagramBot:
         login_field.send_keys(self.username)
         password_field.send_keys(self.pw)
 
-        self.driver.find_element_by_xpath("//button[@type=\"submit\"]").click()
+        login_button = self.driver.find_element_by_xpath("//button[@type=\"submit\"]")
+        login_button.click()
         time.sleep(5)
 
-    # TODO finish unfollow method
-    def unfollow(self):
-        # Try to go to profile trough nav-menu
-        try:
-            # Profile in nav-menu
-            self.driver.find_element_by_xpath(
-                "//*[@id=\"react-root\"]/section/nav/div[2]/div/div/div[3]/div/div[5]/span/img") \
-                .click()
+    def unfollow(self, *args):
+        pass
 
-            # Profile button in drop down menu
-            self.driver.find_element_by_xpath(
-                "//*[@id=\"react-root\"]/section/nav/div[2]/div/div/div[3]/div/div[5]/div[2]/div/div[2]/div[2]/a[1]") \
-                .click()
+    def follow(self, accounts):
 
-            # following = int(self.driver.
-            #                 find_element_by_xpath(
-            #     "//*[@id='react-root']/section/main/article/header/div[2]/ul/li[2]/a/span")
-            # .text)
-            # followers = self.driver.find_element_by_css_selector('div[role=\'dialog\'] ul')
+        # Only perform action once if one user is given as an command line argument
+        if len(accounts) == 1:
+            self.perform_follow_action(accounts[0])
+        else:
+            for username in accounts:
+                self.perform_follow_action(username)
 
-            # print(len(followers.find_elements_by_css_selector('li')))
-        except Exception as ex:
-            print(str(ex))
+        print(self.complete_message_follow())
 
-        time.sleep(10)
+        time.sleep(5)
         self.driver.quit()
 
+    def perform_follow_action(self, username):
+        try:
+            self.driver.get(f"https://instagram.com/" + username)
+        except Exception:
+            raise ValueError(f"No such username found ({username})")
 
-ig = InstagramBot(secrets.password, secrets.username)
+        follow_button = self.driver.find_element_by_css_selector('button')
+        follow_button.click()
+        print(f"{username} followed successfully!")
 
-ig.sign_in()
-ig.unfollow()
+
+    def complete_message_follow(self):
+        return f"Action complete https://www.instagram.com/" + secrets.username + "/following/ \nExiting..."
+
+
+if __name__ == "__main__":
+    try:
+        command = sys.argv[1].strip()
+        accounts = sys.argv[2:]
+    except Exception:
+        raise Exception("You should enter the needed arguments!")
+
+    ig_bot = InstagramBot(secrets.password, secrets.username)
+
+    if command == "follow":
+        ig_bot.sign_in()
+        ig_bot.follow([u.strip() for u in accounts])
