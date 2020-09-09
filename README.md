@@ -6,6 +6,7 @@ An instagram bot which follows or unfollows a list of people (valid usernames) y
 
 !FOLLOW AND UNFOLLOW ARE THE ONLY COMMANDS THAT WORK!  
 !ENTER ONLY VALID USERNAMES!
+!ENTER USERNAME AND PASSWORD IN SECRETS.PY!
 
 -Requirements installation  
 ![](images/requirements.png)
