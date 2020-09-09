@@ -5,7 +5,8 @@ An instagram bot which follows or unfollows a list of people (valid usernames) y
 # HOW TO USE #
 
 !FOLLOW AND UNFOLLOW ARE THE ONLY COMMANDS THAT WORK!  
-!ENTER ONLY VALID USERNAMES!
+!ENTER ONLY VALID USERNAMES!  
+!ENTER USERNAME AND PASSWORD IN SECRETS.PY!
 
 -Requirements installation  
 ![](images/requirements.png)
@@ -17,4 +18,10 @@ An instagram bot which follows or unfollows a list of people (valid usernames) y
 ![](images/cdInstagramBot.png)  
 ![](images/execute.png)  
 
+# Installing PIP #
 
+WINDOWS  
+![](images/pipwindows.png)  
+
+UBUNTU/DEBIAN  
+![](images/pipubuntudebian.png)
