@@ -7,3 +7,10 @@ An instagram bot which follows or unfollows a list of people (valid usernames) y
 -Requirements installation  
 ![](images/requirements.png)
 
+-Selenium installation  
+
+-Running the script  
+![](images/cdInstagramBot.png)  
+![](images/execute.png)  
+
+
