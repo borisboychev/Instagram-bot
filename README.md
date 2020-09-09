@@ -1,5 +1,5 @@
 # Instagram-bot
-An instagram bot which follows or unfollows a list of people (valid usernames) you give it.
+An instagram bot which follows or unfollows a list of people (valid usernames) you give it.  
 !FIRST PROJECT WITH SELENIUM MIGHT HAVE BUGS!
 
 
